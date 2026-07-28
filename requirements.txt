@@ -1,0 +1,24 @@
+# Core
+numpy>=1.26
+pandas>=2.1
+tqdm>=4.66
+
+# PDF ingestion
+pymupdf>=1.24          # fitz - fast, reliable text + metadata extraction
+
+# Retrieval
+rank-bm25>=0.2.2       # BM25 keyword retrieval
+sentence-transformers>=3.0   # embeddings + cross-encoder reranker
+faiss-cpu>=1.8         # vector index (use faiss-gpu on a CUDA machine)
+
+# Generation (API path)
+anthropic>=0.40
+
+# Evaluation
+scikit-learn>=1.4
+
+# Interface (later)
+streamlit>=1.38
+
+# Dev
+pytest>=8.0
