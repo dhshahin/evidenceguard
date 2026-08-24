@@ -23,8 +23,6 @@ reliability of LLM-generated scientific answers.
 
 ## Status
 
-## Status
-
 - [x] PDF ingestion (page-level, metadata preserved)
 - [x] Chunking (overlapping word windows, stable chunk ids)
 - [x] Retrieval: BM25 / dense / hybrid (RRF)
