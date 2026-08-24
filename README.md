@@ -1,13 +1,27 @@
 # EvidenceGuard
 
-A trustworthy, explainable RAG system for scientific evidence synthesis.
-It answers research questions from a corpus of scientific papers while
-citing exact passages, verifying claim support, estimating confidence, and
-abstaining when evidence is insufficient.
+> **Development status — research prototype**
+>
+> EvidenceGuard is an actively developed research prototype for trustworthy
+> scientific evidence synthesis. The public repository currently contains the
+> reproducible retrieval study (Phase 1). The citation-grounded generation,
+> claim-verification, abstention, and evaluation pipeline is undergoing final
+> validation and will be released after the benchmark and verification audit
+> is completed.
+>
+> Results reported in this repository should therefore be interpreted as
+> experimental rather than as performance claims for a production system.
+
+EvidenceGuard investigates trustworthy and explainable RAG for scientific
+evidence synthesis. It studies whether retrieval quality, citation attribution,
+claim-level verification, abstention, and uncertainty signals can improve the
+reliability of LLM-generated scientific answers.
 
 > **Research question:** Can retrieval quality, evidence attribution, and
 > uncertainty estimation improve the reliability of LLM-generated answers
 > in scientific evidence synthesis?
+
+## Status
 
 ## Status
 
