@@ -5,3 +5,8 @@ data/raw/*.pdf
 data/processed/*.jsonl
 results/*
 .ipynb_checkpoints/
+
+# Publish selected reproducibility artifact
+!results/
+results/*
+!results/generation_eval_results.jsonl

@@ -26,15 +26,27 @@ from src.generation.generator import GeneratedAnswer
 
 
 def citation_validity(ans: GeneratedAnswer) -> float | None:
-    """Fraction of cited ids that were actually offered to the model.
+    """Fraction of model-emitted citation ids that were actually offered.
 
-    None if the answer cited nothing (nothing to validate).
+    Raw citations are used so invalid references remain visible during
+    evaluation rather than being removed before scoring.
     """
-    if ans.abstained or not ans.cited_chunk_ids:
+    if ans.abstained:
         return None
+
+    citations = (
+        ans.raw_cited_chunk_ids
+        if ans.raw_cited_chunk_ids
+        else ans.cited_chunk_ids
+    )
+
+    if not citations:
+        return None
+
     offered = set(ans.passages_used)
-    valid = sum(1 for c in ans.cited_chunk_ids if c in offered)
-    return valid / len(ans.cited_chunk_ids)
+    valid = sum(1 for c in citations if c in offered)
+
+    return valid / len(citations)
 
 
 def citation_grounding(ans: GeneratedAnswer, relevant_ids: list[str]) -> float | None:
@@ -45,7 +57,7 @@ def citation_grounding(ans: GeneratedAnswer, relevant_ids: list[str]) -> float |
     if not relevant_ids:
         return None
     if ans.abstained:
-        return 0.0
+        return None
     return 1.0 if any(c in relevant_ids for c in ans.cited_chunk_ids) else 0.0
 
 
